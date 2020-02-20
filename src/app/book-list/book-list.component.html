@@ -1,0 +1,22 @@
+<table cellspacing="0">
+  <tr>
+    <td>Book Name</td>
+    <td>Author Name</td>
+    <td>Number of Pages</td>
+    <td>Read?</td>
+    <td class="add">
+      <a routerLink="/addBook"><button>+</button></a>
+    </td>
+  </tr>
+  <tr *ngFor="let book of booklist">
+    <td>{{ book.name | titlecase }}</td>
+    <td>{{ book.author | titlecase }}</td>
+    <td>{{ book.pageCount }}</td>
+    <td>
+      <button (click)="toggleRead(book)">
+        {{ book.readStatus ? "Yes" : "No" }}
+      </button>
+    </td>
+    <td><button (click)="removeBook(book)">-</button></td>
+  </tr>
+</table>
