@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { Router } from "@angular/router";
-import { BookListService } from "../core/book-list.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BookListService } from '../core/book-list.service';
 
 @Component({
-  selector: "app-book-list-adder",
-  templateUrl: "./book-list-adder.component.html",
-  styleUrls: ["./book-list.component.sass", "./book-list-adder.component.sass"]
+  selector: 'app-book-list-adder',
+  templateUrl: './book-list-adder.component.html',
+  styleUrls: ['./book-list.component.sass', './book-list-adder.component.sass']
 })
 export class BookListAdderComponent implements OnInit {
   name: string;
@@ -13,13 +13,13 @@ export class BookListAdderComponent implements OnInit {
   pageCount: number;
   readStatus: boolean;
 
-  submit(event) {
+  submit() {
     let goingToReturn = false;
     document
-      .querySelectorAll(".content table input")
+      .querySelectorAll('.content table input')
       .forEach((input: HTMLInputElement) => {
         if (!goingToReturn && !input.checkValidity()) {
-          alert("Please fill out the " + input.id + " field.");
+          alert('Please fill out the ' + input.id + ' field.');
           goingToReturn = true;
         }
       });
@@ -32,7 +32,7 @@ export class BookListAdderComponent implements OnInit {
         readStatus: !!this.readStatus
       })
     ) {
-      this.router.navigate(["booklist"]);
+      this.router.navigate(['booklist']);
     }
   }
 
